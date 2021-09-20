@@ -4,3 +4,10 @@ CREATE TABLE CLIENTE(
     id serial,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE PRODUTO(
+    descricao varchar (25), 
+    preco decimal,
+    id serial,
+    PRIMARY KEY (id)
+);

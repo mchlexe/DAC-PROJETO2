@@ -8,12 +8,12 @@
       
     <ui:define name="center" > 
         <h:form>
-            <h2 class="header center orange-text">Cliente</h2>
-            <h:outputLabel value="Nome: " for="nomeCliente"/>
+            <h2 class="header center black-text">Cliente</h2>
+            <h:outputLabel value="Nome" for="nomeCliente"/>
             <h:inputText id="nomeCliente" value="#{clienteController.getCliente().nome}" />
-            <h:outputLabel value="CPF: " for="cpfCliente" />
+            <h:outputLabel value="CPF" for="cpfCliente" />
             <h:inputText id="cpfCliente" value="#{clienteController.getCliente().cpf}" />
-            <h:commandButton  value="Salvar" action="#{clienteController.add()}" class="btn green white-text"/> 
+            <h:commandButton  value="Confirmar" action="#{clienteController.add()}" class="btn black white-text"/> 
         </h:form>
         
     </ui:define>
