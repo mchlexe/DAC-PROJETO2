@@ -1,4 +1,4 @@
-package br.edu.ifpb.domain;
+package br.edu.ifpb.domain.Cliente;
 
 import java.util.List;
 import java.io.Serializable;

@@ -1,7 +1,6 @@
-package br.edu.ifpb.domain;
+package br.edu.ifpb.domain.Cliente;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Objects;
 
 @XmlRootElement
 public class Cliente {

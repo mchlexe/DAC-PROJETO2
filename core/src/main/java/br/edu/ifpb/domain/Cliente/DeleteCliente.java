@@ -1,4 +1,4 @@
-package br.edu.ifpb.domain;
+package br.edu.ifpb.domain.Cliente;
 
 import javax.ejb.Stateless;
 import javax.ejb.EJB;

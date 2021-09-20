@@ -1,4 +1,4 @@
-package br.edu.ifpb.domain;
+package br.edu.ifpb.domain.Cliente;
 
 import java.util.Objects;
 import javax.ejb.EJB;

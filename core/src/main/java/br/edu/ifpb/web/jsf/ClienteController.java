@@ -1,10 +1,10 @@
 package br.edu.ifpb.web.jsf;
 
-import br.edu.ifpb.domain.Cliente;
-import br.edu.ifpb.domain.ListClientes;
-import br.edu.ifpb.domain.AddCliente;
-import br.edu.ifpb.domain.DeleteCliente;
-import br.edu.ifpb.domain.UpdateCliente;
+import br.edu.ifpb.domain.Cliente.Cliente;
+import br.edu.ifpb.domain.Cliente.ListClientes;
+import br.edu.ifpb.domain.Cliente.AddCliente;
+import br.edu.ifpb.domain.Cliente.DeleteCliente;
+import br.edu.ifpb.domain.Cliente.UpdateCliente;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;

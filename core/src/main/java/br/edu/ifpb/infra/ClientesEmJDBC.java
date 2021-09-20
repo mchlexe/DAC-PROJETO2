@@ -1,7 +1,7 @@
 package br.edu.ifpb.infra;
 
-import br.edu.ifpb.domain.Clientes;
-import br.edu.ifpb.domain.Cliente;
+import br.edu.ifpb.domain.Cliente.Clientes;
+import br.edu.ifpb.domain.Cliente.Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

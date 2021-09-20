@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../template.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+        
+    <ui:define name="center">
+            
+        <h1 class="header center black-text">Busca de produtos:</h1>
+        <br></br>
+        
+        <h:form>
+            
+            <h:outputLabel value="Informe a descrição do produto:" for="descricaoProduto"/>
+            <h:inputText 
+                value="#{produtoController.getProduto().descricao}"
+                />
+            <h:commandButton value="Buscar" action="#{produtoController.listByDescricaoProduto()}" class="btn black white-text" />
+            <br /> <br />
+            
+            <h:dataTable rendered="#{produtoController.resultProdutos.size() > 0}" value="#{produtoController.resultProdutos}"  var="produto" class="striped highlight">
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{produto.id}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Descrição</f:facet>
+                    #{produto.descricao}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Preço</f:facet>
+                    #{produto.preco}
+                </h:column>
+
+            <br /> <br />
+            </h:dataTable> 
+              
+            <br /><br />              
+        </h:form>
+        
+    </ui:define>
+    
+     
+        
+    
+</ui:composition>
