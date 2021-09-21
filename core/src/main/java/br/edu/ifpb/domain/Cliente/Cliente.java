@@ -14,10 +14,10 @@ public class Cliente {
         this(-1,cpf,nome);
     }
 
-    public Cliente(int id,String cpf,String nome) {
+    public Cliente(int id,String nome,String cpf) {
         this.id = id;
-        this.cpf = cpf;
         this.nome = nome;
+        this.cpf = cpf;
     }
 
     public int getId() {

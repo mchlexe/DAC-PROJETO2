@@ -11,3 +11,14 @@ CREATE TABLE PRODUTO(
     id serial,
     PRIMARY KEY (id)
 );
+
+
+CREATE TABLE VENDA(
+    produto int, 
+    quantidade int,
+    cliente int,
+    id serial,
+	FOREIGN KEY (produto) REFERENCES PRODUTO(id) ON DELETE CASCADE,
+	FOREIGN KEY (cliente) REFERENCES CLIENTE(id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);

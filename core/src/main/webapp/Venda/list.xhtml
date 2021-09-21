@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      template="../template.xhtml">
+   
+    
+    <ui:define name="center" >
+        
+        <h:form>
+
+            <h1 class="header center black-text">Vendas</h1>
+
+            <h:dataTable value="#{vendaController.list()}" var="venda" class="striped highlight">
+
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{venda.id}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">ID Produto</f:facet>
+                    #{venda.produto}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Quantidade</f:facet>
+                    #{venda.quantidade}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">ID Cliente</f:facet>
+                    #{venda.cliente}
+                </h:column>
+
+                <h:column>
+                    <h:commandButton  value="Editar" action="#{vendaController.update(venda)}" class="btn yellow white-text"/>                
+                </h:column>
+                
+                <h:column>
+                    <h:commandButton value="Remover" action="#{vendaController.delete(venda)}" class="btn red white-text"/>
+                </h:column>
+
+            <br /> <br />
+            </h:dataTable>
+        
+            
+        </h:form>
+    </ui:define>
+</ui:composition>

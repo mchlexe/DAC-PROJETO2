@@ -64,7 +64,7 @@ public class ProdutoController implements Serializable {
         return "/Produto/edit?faces-redirect=true";
     }
     
-    public String delete(Produto cliente) {
+    public String delete(Produto produto) {
         
         this.deleteProduto.delete(produto);
         return "/Produto/list?faces-redirect=true";
