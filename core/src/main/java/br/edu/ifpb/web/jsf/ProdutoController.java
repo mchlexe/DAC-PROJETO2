@@ -5,6 +5,7 @@ import br.edu.ifpb.domain.Produto.ListAllProdutos;
 import br.edu.ifpb.domain.Produto.ListByDescricaoProduto;
 import br.edu.ifpb.domain.Produto.AddProduto;
 import br.edu.ifpb.domain.Produto.DeleteProduto;
+import br.edu.ifpb.domain.Produto.GetProdutoById;
 import br.edu.ifpb.domain.Produto.UpdateProduto;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ public class ProdutoController implements Serializable {
     
     @Inject
     private ListByDescricaoProduto  listByDescricaoProduto;
+    
+    @Inject
+    private GetProdutoById  getById;
     
     
      public List<Produto> getResultProdutos() {
@@ -84,6 +88,11 @@ public class ProdutoController implements Serializable {
     
     public Produto getProduto() {
         return produto;
+    }
+    
+    public String getById(int id) {
+        
+        return getById.get(id);
     }
         
 }

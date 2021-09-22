@@ -13,4 +13,6 @@ public interface Clientes extends Serializable {
     public void delete(Cliente cliente);
    
     public List<Cliente> list();
+    
+    public String getById(int id);
 }

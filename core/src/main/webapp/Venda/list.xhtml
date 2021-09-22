@@ -22,7 +22,7 @@
 
                 <h:column>
                     <f:facet name="header">ID Produto</f:facet>
-                    #{venda.produto}
+                    #{produtoController.getById(venda.produto)}
                 </h:column>
 
                 <h:column>
@@ -32,7 +32,7 @@
 
                 <h:column>
                     <f:facet name="header">ID Cliente</f:facet>
-                    #{venda.cliente}
+                    #{clienteController.getById(venda.cliente)}
                 </h:column>
 
                 <h:column>

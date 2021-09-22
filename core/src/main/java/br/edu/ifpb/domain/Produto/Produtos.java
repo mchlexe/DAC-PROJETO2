@@ -15,4 +15,6 @@ public interface Produtos extends Serializable {
     public List<Produto> listAll();
 
     public List<Produto> listByDescricao(String descricao);
+
+    public String getById(int id);
 }

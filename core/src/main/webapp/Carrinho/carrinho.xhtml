@@ -2,46 +2,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      template="../template.xhtml">
-        
-    <ui:define name="center" >
-            <h:form>
-                <h3 class="header center black-text">Carrinho</h3>    
-                <h:dataTable var="item" value="#{carrinhoController.getProdutos()}" var="produto" class="striped highlight">
-                    <h:column>
-                       <f:facet name="header">Produto</f:facet>
-                        #{item.produto}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Preço</f:facet>
-                        #{item.valor}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Quantidade</f:facet>
-                        #{item.quantidade}
-                    </h:column>
-                    <h:column>
-                        <h:commandButton value="Excluir" action="#{carrinhoController.remover(item.produto)}" class="btn"/>
-                    </h:column>
-                    <h:column>
-                        <h:commandButton value="-" action="#{carrinhoController.incrementar(item.produto)}" class="btn"/>
-                    </h:column>
-                    <h:column>
-                        <h:commandButton value="+" action="#{carrinhoController.decrementar(item.produto)}" class="btn"/>
-                    </h:column>
-                </h:dataTable>
+      template="../template.xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+      
+    <ui:define name="center" > 
+        <h:form>
+            <h2 class="header center black-text">Carrinho de Compras</h2>
+            <h:outputLabel value="Produto" for="produtoVenda"/>
+            <h:inputText id="produtoVenda" value="#{carrinhoController.getVenda().produto}" />
+            
+            <h:outputLabel value="Quantidade" for="quantidadeVenda" />
+            <h:inputText id="quantidadeVenda" value="#{carrinhoController.getVenda().quantidade}" />
+            <h:outputLabel value="Cliente" for="clienteVenda" />
+            <h:inputText id="clienteVenda" value="#{carrinhoController.getVenda().cliente}" />                      
+            
+<!--             <h:selectOneMenu value="{carrinhoController.getVenda().produto}" converter="converter.produto">
+                <f:selectItems value="{produtoController.listAllProdutos()}" var="prod" itemLabel="{prod.uuid}" />
+            </h:selectOneMenu>-->
+           
 
-                     
-                <br /> <br />
-                
-                
-                
-                <h:commandButton value="Finalizar Carrinho" action="#{controladorDeCarrinhoDeCompras.concluir()}" class="btn green white-text" />
-                   
-            </h:form>
+
+            <h:commandButton  value="Confirmar" action="#{carrinhoController.add()}" class="btn black white-text"/> 
+        </h:form>
+        
+        
+        <h:form>
+            <h1 class="header center black-text">Vendas no Carrinho</h1>
+
+            <h:dataTable value="#{carrinhoController.list()}" var="venda" class="striped highlight">
+
+                <h:column>
+                    <f:facet name="header">ID Produto</f:facet>
+                    #{produtoController.getById(venda.produto)}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Quantidade</f:facet>
+                    #{venda.quantidade}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">ID Cliente</f:facet>
+                    #{clienteController.getById(venda.cliente)}
+                </h:column>
+
+                <h:column>
+                    <h:commandButton value="Remover" action="#{carrinhoController.delete()}" class="btn red white-text"/>
+                </h:column>
+            <br /> <br />
+            </h:dataTable>
+                        
+            <h:commandButton  value="Checkout" action="#{carrinhoController.finish()}" class="btn black white-text"/> 
+        </h:form>
         
     </ui:define>
-          
+        
 </ui:composition>

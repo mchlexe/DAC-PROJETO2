@@ -114,5 +114,30 @@ public class ClientesEmJDBC implements Clientes {
             return Collections.EMPTY_LIST;
         }
     }
+    
+    @Override
+    public String getById(int id) {
+        try {
+            String nome = "";
+            
+            PreparedStatement statement = connection
+                    .prepareStatement(
+                    "SELECT NOME FROM CLIENTE WHERE ID = ?;"
+                );
+            statement.setInt(1, id);
+            statement.executeQuery();
+            
+            ResultSet result = statement.getResultSet();
+            
+            while (result.next()) {
+                nome = result.getString("nome");
+            }    
+            
+            return nome;
+            
+        } catch (SQLException ex) {
+            return "Erro em getById - ClientesEmJDBC";
+        }
+    }
 
 }

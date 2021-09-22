@@ -140,5 +140,30 @@ public class ProdutosEmJDBC implements Produtos {
             return Collections.EMPTY_LIST;
         }
     }
+    
+    @Override
+    public String getById(int id) {
+        try {
+            String descricao = "";
+            
+            PreparedStatement statement = connection
+                    .prepareStatement(
+                    "SELECT DESCRICAO FROM PRODUTO WHERE ID = ?;"
+                );
+            statement.setInt(1, id);
+            statement.executeQuery();
+            
+            ResultSet result = statement.getResultSet();
+            
+            while (result.next()) {
+                descricao = result.getString("descricao");
+            }    
+            
+            return descricao;
+            
+        } catch (SQLException ex) {
+            return "Erro em getById - ProdutosEmJDBC";
+        }
+    }
 
 }

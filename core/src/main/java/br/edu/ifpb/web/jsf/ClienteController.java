@@ -4,6 +4,7 @@ import br.edu.ifpb.domain.Cliente.Cliente;
 import br.edu.ifpb.domain.Cliente.ListClientes;
 import br.edu.ifpb.domain.Cliente.AddCliente;
 import br.edu.ifpb.domain.Cliente.DeleteCliente;
+import br.edu.ifpb.domain.Cliente.GetClienteById;
 import br.edu.ifpb.domain.Cliente.UpdateCliente;
 import java.io.Serializable;
 import java.util.List;
@@ -27,6 +28,9 @@ public class ClienteController implements Serializable {
     
     @Inject
     private ListClientes  listClientes;
+    
+    @Inject
+    private GetClienteById  getById;
     
     private Cliente cliente = new Cliente(0, "", "");
     
@@ -63,6 +67,11 @@ public class ClienteController implements Serializable {
     
     public Cliente getCliente() {
         return cliente;
+    }
+    
+    public String getById(int id) {
+        
+        return getById.get(id);
     }
         
 }

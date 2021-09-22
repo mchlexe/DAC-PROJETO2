@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Produto {
 
-    private int id;
+    private Integer id;
     private String descricao;
     private Double preco;
 
@@ -15,8 +15,15 @@ public class Produto {
         this.descricao = descricao;
         this.preco = preco;
     }
+    
+    
+    public Produto(Produto produto) {
+        this.id = produto.id;
+        this.descricao = produto.descricao;
+        this.preco = produto.preco;
+    }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
